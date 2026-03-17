@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeuroPlay - Games</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="top-nav">
+      <div class="brand-block"><h1>NeuroPlay</h1></div>
+      <nav class="nav-links">
+        <a class="nav-btn" href="index.html">Home</a>
+        <a class="nav-btn" href="games.html">Games</a>
+        <a class="nav-btn" href="patient-report.html">Patient Report</a>
+      </nav>
+      <div id="authArea" class="auth-actions"></div>
+    </header>
+
+    <section class="hero">
+      <h2>Therapy Games Suite</h2>
+      <p>Pick a game based on target domain: memory, psychomotor speed, or sustained attention.</p>
+    </section>
+
+    <section class="game-catalog">
+      <h2>Game Navigation</h2>
+      <div class="game-cards">
+        <article class="game-card">
+          <h3>Memory Pattern (WASM)</h3>
+          <p>Short-term memory and sequencing rehabilitation challenge.</p>
+          <a href="games.html" class="dashboard-link">Play Memory Pattern</a>
+        </article>
+        <article class="game-card">
+          <h3>Reaction Sprint</h3>
+          <p>Targets motor initiation latency and psychomotor response speed.</p>
+          <a href="games/reaction.html" class="dashboard-link">Play Reaction Sprint</a>
+        </article>
+        <article class="game-card">
+          <h3>Attention Grid</h3>
+          <p>Targets visual attention endurance and rapid spatial scanning.</p>
+          <a href="games/attention.html" class="dashboard-link">Play Attention Grid</a>
+        </article>
+        <article class="game-card">
+          <h3>Neon Math Reflex</h3>
+          <p>Targets processing speed, working memory, and cognitive response accuracy.</p>
+          <a href="games/neonmath.html" class="dashboard-link">Play Neon Math Reflex</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="controls">
+      <label for="userId">Patient ID</label>
+      <input id="userId" type="text" placeholder="patient-001" />
+      <button id="startBtn">Start Memory Pattern Session</button>
+    </section>
+
+    <section class="status-panel">
+      <div><span>Level:</span> <strong id="levelValue">0</strong></div>
+      <div><span>Accuracy:</span> <strong id="accuracyValue">0%</strong></div>
+      <div><span>Avg Reaction:</span> <strong id="reactionValue">0 ms</strong></div>
+      <div><span>Mistakes:</span> <strong id="mistakeValue">0</strong></div>
+      <div><span>Avg Hesitation:</span> <strong id="hesitationValue">0 ms</strong></div>
+    </section>
+
+    <section class="game-board" id="gameBoard" aria-label="Memory Tiles">
+      <button class="tile tile-0" data-tile="0" aria-label="Tile Red"></button>
+      <button class="tile tile-1" data-tile="1" aria-label="Tile Blue"></button>
+      <button class="tile tile-2" data-tile="2" aria-label="Tile Green"></button>
+      <button class="tile tile-3" data-tile="3" aria-label="Tile Yellow"></button>
+    </section>
+
+    <p id="gameMessage" class="message">Enter a patient ID and start the session.</p>
+    <p id="clinicalSummary" class="clinical-box"></p>
+  </main>
+
+  <script>
+    var Module = {
+      onRuntimeInitialized: function () {
+        window.wasmReady = true;
+        document.dispatchEvent(new Event("wasm-ready"));
+      }
+    };
+  </script>
+  <script src="wasm/engine.js"></script>
+  <script type="module">
+    import { injectAuthHeader } from "./auth.js";
+    injectAuthHeader({ showDoctorNav: true });
+  </script>
+  <script type="module" src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeuroPlay - Home</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="top-nav">
+      <div class="brand-block">
+        <h1>NeuroPlay</h1>
+      </div>
+      <nav class="nav-links">
+        <a class="nav-btn" href="games.html">Games</a>
+        <a class="nav-btn" href="patient-report.html">My Report</a>
+      </nav>
+      <div id="authArea" class="auth-actions"></div>
+    </header>
+
+    <section class="hero">
+      <div>
+        <h2>Cognitive Rehabilitation Through Play</h2>
+        <p>
+          NeuroPlay is a recovery-focused digital platform that blends clinical cognitive exercises,
+          adaptive gameplay, and measurable outcomes for post-stroke and TBI rehabilitation.
+        </p>
+        <div class="hero-actions">
+          <a class="nav-btn" href="games.html">Explore Games</a>
+          <a class="nav-btn ghost" href="patient-report.html" data-report-link="true">My Report</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel-card" id="about-us">
+      <h3>About Us</h3>
+      <p>
+        We build calm, clinically informed digital therapy experiences for post-stroke and traumatic brain injury recovery.
+        NeuroPlay combines neuroscientific structure with approachable design so patients can train consistently at home.
+      </p>
+    </section>
+
+    <section class="panel-card" id="solutions">
+      <h3>Solutions</h3>
+      <div class="role-grid">
+        <article>
+          <h4>Stroke Recovery</h4>
+          <p>Improves processing speed, attention switching, and decision consistency through adaptive sessions.</p>
+        </article>
+        <article>
+          <h4>Traumatic Brain Injury (TBI)</h4>
+          <p>Supports gradual cognitive load rebuilding with measurable, low-stress progression.</p>
+        </article>
+        <article>
+          <h4>Mild Cognitive Impairment</h4>
+          <p>Uses routine game-based practice to reinforce memory recall and reaction planning.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel-card problem-section">
+      <h3>Problem We Are Solving</h3>
+      <div class="problem-grid">
+        <article>
+          <span class="problem-icon">Repetitive Loop</span>
+          <h4>The Issue</h4>
+          <p>Traditional cognitive therapy can feel repetitive, leading to low patient adherence and motivation.</p>
+        </article>
+        <article>
+          <span class="problem-icon">Gamepad</span>
+          <h4>The Solution</h4>
+          <p>NeuroPlay transforms clinical exercises into engaging, structured gameplay that patients actually want to play.</p>
+        </article>
+        <article>
+          <span class="problem-icon">Missing Puzzle Piece</span>
+          <h4>The Issue</h4>
+          <p>Clinicians lack continuous, objective data from home-based therapy sessions.</p>
+        </article>
+        <article>
+          <span class="problem-icon">Line Graph</span>
+          <h4>The Solution</h4>
+          <p>We capture real-time, medically meaningful metrics (reaction time, accuracy, hesitation) to give doctors data-backed insights for better treatment plans.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel-card">
+      <h3>Key Roles</h3>
+      <div class="role-grid">
+        <article>
+          <h4>Patients</h4>
+          <p>Play guided cognitive games and track measurable improvement over sessions.</p>
+        </article>
+        <article>
+          <h4>Doctors / Admin</h4>
+          <p>Access advanced dashboard insights through special doctor credentials only.</p>
+        </article>
+        <article>
+          <h4>Caregivers</h4>
+          <p>Use patient reports to monitor consistency and support home-based recovery plans.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel-card" id="statistics">
+      <h3>Recovery Statistics</h3>
+      <div class="stats-grid">
+        <div><strong>4</strong><span>Core Cognitive Games</span></div>
+        <div><strong>5+</strong><span>Tracked Clinical Metrics</span></div>
+        <div><strong>100%</strong><span>Web-based Access</span></div>
+        <div><strong>24/7</strong><span>Remote Monitoring Ready</span></div>
+      </div>
+    </section>
+
+  </main>
+  <script type="module">
+    import { injectAuthHeader } from "./auth.js";
+    import { startAmbientParticles } from "./ambient-particles.js";
+    injectAuthHeader({ showDoctorNav: true });
+    startAmbientParticles();
+  </script>
+</body>
+</html>

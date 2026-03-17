@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeuroPlay - Login</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell narrow-shell">
+    <header class="top-nav">
+      <div class="brand-block"><h1>NeuroPlay</h1></div>
+      <nav class="nav-links">
+        <a class="nav-btn" href="index.html">Home</a>
+        <a class="nav-btn" href="games.html">Games</a>
+        <a class="nav-btn" href="patient-report.html">Patient Report</a>
+      </nav>
+      <div id="authArea" class="auth-actions"></div>
+    </header>
+
+    <section class="panel-card auth-card">
+      <h2>Login</h2>
+      <p>Doctor dashboard is restricted to registered doctor accounts.</p>
+      <form id="loginForm" class="auth-form">
+        <label for="role">Role</label>
+        <select id="role" aria-describedby="roleHelp">
+          <option value="patient">Patient</option>
+          <option value="doctor">Doctor (Admin)</option>
+        </select>
+        <small id="roleHelp" class="small-note">Choose Doctor only for admin dashboard access.</small>
+
+        <label for="email">Email</label>
+        <input id="email" type="email" required autocomplete="email" aria-describedby="emailHelp" />
+        <small id="emailHelp" class="small-note">Use your registered email address.</small>
+
+        <label for="password">Password</label>
+        <input id="password" type="password" required autocomplete="current-password" />
+
+        <button type="submit">Login</button>
+      </form>
+      <p id="loginStatus" class="message state-info" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <script type="module" src="login.js"></script>
+</body>
+</html>

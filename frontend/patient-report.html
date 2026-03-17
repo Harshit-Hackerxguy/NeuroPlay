@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeuroPlay - Patient Report</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="top-nav">
+      <div class="brand-block">
+        <h1>NeuroPlay</h1>
+      </div>
+      <nav class="nav-links">
+        <a class="nav-btn" href="index.html">Home</a>
+        <a class="nav-btn" href="games.html">Games</a>
+        <a class="nav-btn" href="patient-report.html">Patient Report</a>
+      </nav>
+      <div id="authArea" class="auth-actions"></div>
+    </header>
+
+    <section class="hero">
+      <h2>Patient Progress Report</h2>
+      <p>Track outcomes at a glance with trend cards and calm visual analytics designed for cognitive care.</p>
+    </section>
+
+    <section class="controls">
+      <label for="reportUserId">Patient ID</label>
+      <input id="reportUserId" type="text" placeholder="patient-001" />
+      <button id="loadReportBtn">Load Report</button>
+    </section>
+
+    <p id="reportStatus" class="message state-info" aria-live="polite">Ready.</p>
+
+    <section class="panel-card metric-cards" aria-label="Key report metrics">
+      <article class="metric-card">
+        <p class="metric-label">Total Sessions</p>
+        <p id="metricSessions" class="metric-value">0</p>
+      </article>
+      <article class="metric-card">
+        <p class="metric-label">Average Accuracy</p>
+        <p id="metricAccuracy" class="metric-value">0%</p>
+      </article>
+      <article class="metric-card">
+        <p class="metric-label">Overall Improvement</p>
+        <p id="metricImprovement" class="metric-value">Stable</p>
+        <small id="metricImprovementHint" class="metric-subtext">Focus area: --</small>
+      </article>
+    </section>
+
+    <section class="panel-card chart-grid">
+      <article>
+        <h3>Reaction Time vs Accuracy</h3>
+        <canvas id="performanceLineChart" height="120"></canvas>
+      </article>
+      <article>
+        <h3>Cognitive Strength Profile</h3>
+        <canvas id="strengthRadarChart" height="120"></canvas>
+      </article>
+    </section>
+
+    <section class="panel-card">
+      <h3>Session Details</h3>
+      <table class="report-table" id="reportTable">
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Game</th>
+            <th>Reaction (ms)</th>
+            <th>Accuracy (%)</th>
+            <th>Mistakes</th>
+            <th>Diagnosis Signal</th>
+            <th>Improvement</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script type="module" src="patient-report.js"></script>
+</body>
+</html>

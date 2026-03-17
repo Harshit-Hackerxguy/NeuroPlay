@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeuroPlay - Sign Up</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell narrow-shell">
+    <header class="top-nav">
+      <div class="brand-block"><h1>NeuroPlay</h1></div>
+      <nav class="nav-links">
+        <a class="nav-btn" href="index.html">Home</a>
+        <a class="nav-btn" href="games.html">Games</a>
+        <a class="nav-btn" href="patient-report.html">Patient Report</a>
+      </nav>
+      <div id="authArea" class="auth-actions"></div>
+    </header>
+
+    <section class="panel-card auth-card">
+      <h2>Create Account</h2>
+      <p>Sign up as a patient or doctor. Doctor accounts can access the dashboard after login.</p>
+      <form id="signupForm" class="auth-form">
+        <label for="role">Role</label>
+        <select id="role" aria-describedby="roleHelp">
+          <option value="patient">Patient</option>
+          <option value="doctor">Doctor</option>
+        </select>
+        <small id="roleHelp" class="small-note">Choose Doctor only for clinical dashboard access.</small>
+
+        <label for="name">Full Name</label>
+        <input id="name" type="text" required autocomplete="name" aria-describedby="nameHelp" />
+        <small id="nameHelp" class="small-note">Enter your full name as used in records.</small>
+
+        <div id="patientIdGroup">
+          <label for="patientId">Patient ID</label>
+          <input id="patientId" type="text" required aria-describedby="patientIdHelp" />
+          <small id="patientIdHelp" class="small-note">This links game sessions and reports to the patient account.</small>
+        </div>
+
+        <label for="email">Email</label>
+        <input id="email" type="email" required autocomplete="email" />
+
+        <label for="password">Password</label>
+        <input id="password" type="password" required minlength="6" aria-describedby="passwordHelp" />
+        <small id="passwordHelp" class="small-note">Minimum 6 chars with 1 uppercase letter and 1 number.</small>
+
+        <button type="submit">Create Account</button>
+      </form>
+      <p id="signupStatus" class="message state-info" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <script type="module" src="signup.js"></script>
+</body>
+</html>
