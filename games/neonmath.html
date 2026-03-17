@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeuroPlay - Neon Math Reflex</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="top-nav">
+      <div class="brand-block"><h1>NeuroPlay</h1></div>
+      <nav class="nav-links">
+        <a class="nav-btn" href="../index.html">Home</a>
+        <a class="nav-btn" href="../games.html">Games</a>
+        <a class="nav-btn" href="../patient-report.html">Patient Report</a>
+      </nav>
+      <div id="authArea" class="auth-actions"></div>
+    </header>
+
+    <section class="hero">
+      <h1>Neon Math Reflex</h1>
+      <p>Built for cognitive processing speed, working memory, and decision accuracy.</p>
+      <a href="../games.html" class="dashboard-link">Back to Games</a>
+    </section>
+
+    <section class="controls">
+      <label for="mathUserId">Patient ID</label>
+      <input id="mathUserId" type="text" placeholder="patient-001" />
+      <button id="mathStart">Start Math Reflex</button>
+    </section>
+
+    <section class="status-panel">
+      <div><span>Questions:</span> <strong id="mathQ">0</strong></div>
+      <div><span>Correct:</span> <strong id="mathCorrect">0</strong></div>
+      <div><span>Accuracy:</span> <strong id="mathAccuracy">0%</strong></div>
+      <div><span>Avg Time:</span> <strong id="mathTime">0 ms</strong></div>
+      <div><span>Mistakes:</span> <strong id="mathMistakes">0</strong></div>
+    </section>
+
+    <section class="panel-card">
+      <h2 id="mathQuestion">Press start to begin.</h2>
+      <div class="controls">
+        <input id="mathAnswer" type="number" placeholder="Type answer" />
+        <button id="mathSubmit">Submit</button>
+      </div>
+      <p id="mathStatus" class="message state-info">Ready.</p>
+      <p id="mathClinical" class="clinical-box"></p>
+    </section>
+  </main>
+
+  <script type="module" src="neonmath.js"></script>
+</body>
+</html>

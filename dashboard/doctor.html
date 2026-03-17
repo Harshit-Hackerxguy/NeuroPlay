@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeuroPlay Doctor Dashboard</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="top-nav">
+      <div class="brand-block"><h1>NeuroPlay Admin</h1></div>
+      <nav class="nav-links">
+        <a class="nav-btn" href="../index.html">Home</a>
+        <a class="nav-btn" href="../games.html">Games</a>
+        <a class="nav-btn" href="../patient-report.html">Patient Report</a>
+      </nav>
+      <div id="authArea" class="auth-actions"></div>
+    </header>
+
+    <section class="hero">
+      <h2>Doctor Dashboard</h2>
+      <p>Review patient performance trends with concise visual analytics and data-backed clinical signals.</p>
+    </section>
+
+    <section class="controls">
+      <input id="patientId" type="text" placeholder="Filter by patient ID (optional)" />
+      <select id="gameName">
+        <option value="">All games</option>
+        <option value="memory-pattern">Memory Pattern</option>
+        <option value="reaction-sprint">Reaction Sprint</option>
+        <option value="attention-grid">Attention Grid</option>
+        <option value="neon-math-reflex">Neon Math Reflex</option>
+      </select>
+      <button id="loadBtn">Load Data</button>
+      <a href="../index.html">Back to Home</a>
+    </section>
+
+    <p id="status" class="message state-info" aria-live="polite">Ready.</p>
+
+    <section class="panel-card metric-cards" aria-label="Dashboard key metrics">
+      <article class="metric-card">
+        <p class="metric-label">Total Sessions</p>
+        <p id="metricSessions" class="metric-value">0</p>
+      </article>
+      <article class="metric-card">
+        <p class="metric-label">Average Accuracy</p>
+        <p id="metricAccuracy" class="metric-value">0%</p>
+      </article>
+      <article class="metric-card">
+        <p class="metric-label">Overall Improvement</p>
+        <p id="metricImprovement" class="metric-value">Stable</p>
+        <small id="metricImprovementHint" class="metric-subtext">Focus area: --</small>
+      </article>
+    </section>
+
+    <section class="panel-card metric-cards" aria-label="Doctor analytics insights">
+      <article class="metric-card">
+        <p class="metric-label">Consistency Score</p>
+        <p id="metricConsistency" class="metric-value">0</p>
+      </article>
+      <article class="metric-card">
+        <p class="metric-label">Risk Flag</p>
+        <p id="metricRisk" class="metric-value">Low</p>
+      </article>
+      <article class="metric-card">
+        <p class="metric-label">Primary Need</p>
+        <p id="metricNeed" class="metric-value">--</p>
+      </article>
+    </section>
+
+    <section class="panel-card chart-grid">
+      <article>
+        <h3>Reaction Time vs Accuracy</h3>
+        <canvas id="performanceChart" height="120"></canvas>
+      </article>
+      <article>
+        <h3>Cognitive Strength Profile</h3>
+        <canvas id="strengthChart" height="120"></canvas>
+      </article>
+    </section>
+    <section class="panel-card">
+        <h3>Clinical Interpretation</h3>
+        <table id="clinicalTable" class="report-table">
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Game</th>
+              <th>Diagnosis Signal</th>
+              <th>Improvement Plan</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script type="module" src="doctor.js"></script>
+</body>
+</html>
