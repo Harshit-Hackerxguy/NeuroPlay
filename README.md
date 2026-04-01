@@ -1,12 +1,38 @@
 # NeuroPlay MVP
 
-A web-based cognitive rehabilitation prototype with:
+## Overview : A web-based cognitive rehabilitation prototype with:
 - Memory pattern game for patients
 - Reaction sprint game for psychomotor speed
 - Attention grid game for sustained attention
 - C++ game logic and metrics processing compiled to WebAssembly
 - PostgreSQL storage via Node.js API
 - Doctor dashboard with Chart.js trends
+
+
+## Features
+* **Memory Pattern Game**: Built to target short-term memory and sequencing impairment. Focuses on memory retention consistency and sequencing accuracy.
+* **Reaction Sprint Game**: Targets psychomotor delay, focusing on initiation speed and motor response latency.
+* **Attention Grid Game**: Designed for sustained-attention deficits, tracking vigilance, misses, and visual scanning control.
+* **Dynamic Difficulty Engine**: Automatically scales pattern lengths and challenge levels based on round accuracy (e.g., pattern length increases if round accuracy > 80%, decreases if < 50%).
+* **Doctor Dashboard**: Provides real-time Chart.js trends and performance metrics for medical professionals.
+* **Clinical Notes**: Stores diagnostic signals and improvement notes that the dashboard surfaces for follow-up therapy planning.
+
+
+## Tech Stack & Tools
+* **Core Logic Engine**: C++
+* **WebAssembly (WASM)**: Emscripten Compiler
+* **Frontend**: Vanilla JavaScript, HTML5, CSS3, Chart.js
+* **Backend**: Node.js API
+* **Database**: PostgreSQL
+
+
+## Technical Workflow
+1. **WebAssembly Bridge**: The core puzzle mechanics, performance metrics, and sequence generation are written in C++ for optimal performance. Emscripten compiles this C++ engine into a WebAssembly module (`engine.wasm`) and a JavaScript wrapper (`engine.js`).
+2. **Frontend Interactivity**: The web client interacts directly with the compiled C++ functions via the JavaScript bridge (e.g., calling `Module._startPuzzle()`, `Module._recordClick()`).
+3. **Data Persistence**: At the end of a session, game metrics (reaction time, accuracy, mistakes, hesitation time) are sent to the Node.js backend API.
+4. **Database Storage**: The Node backend securely stores the session data, difficulty level, and clinical improvement notes into a PostgreSQL database.
+5. **Dashboard Rendering**: The doctor dashboard fetches historical data from the API and visualizes patient trends over time using Chart.js.
+
 
 ## Folder Structure
 
